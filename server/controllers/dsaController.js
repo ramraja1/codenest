@@ -196,7 +196,7 @@ let mcqHistory = [
       The user might ask for questions on a specific topic or difficulty level, like:
       - "Give me 3 array questions from easy to moderate difficulty."
       - "Generate 5 questions on sorting algorithms with medium difficulty."
-      - "Create 4 hard-level questions on strings."
+      - "Create 4 hard-level questions on string."
 
       You should:
       1. Understand the number of questions the user wants.
