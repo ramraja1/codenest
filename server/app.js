@@ -17,6 +17,7 @@ import batchRoutes from "./routes/batchRoutes.js"
 import quizRoutes from "./routes/quizRoutes.js"
 import quizQuestionRoutes from "./routes/quizQuestionRoutes.js"
 import { errorHandler } from "./utils/errorHandler.js";
+import chatbotRoute from "./routes/chatbotRoute.js"
 
 // Load environment variables
 dotenv.config();
@@ -73,6 +74,10 @@ app.use("/challenge", challengeRoutes);
 app.use("/question", questionRoutes);
 app.use("/testCase", testCaseRoutes);
 app.use("/submission", submissionRoutes);
+
+//chatbot
+app.use("/chatbot",chatbotRoute)
+
 
 // Quiz Routes
 app.use('/api/batches', batchRoutes)
