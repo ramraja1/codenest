@@ -15,6 +15,8 @@ import UserLogin from "./components/user/UserLogin";
 import ParticipantChallengeOverviewPage from "./components/userChallengePages/ParticipantChallengeOverviewPage";
 import MainCode from "./components/VsCode/MainCode";
 import Student from "./pages/student/Student";
+import ProblemOfTheDay from "./pages/student/potd";
+import SDE from "./pages/student/sde"
 
 // Pages
 import AddQuestion from "./pages/host/AddQuestion";
@@ -132,7 +134,8 @@ function App() {
           <Route path="/user/batch" element={<BatchDetailsPage />} />
           <Route path="/user/quiz/result" element={<QuizResults />} />
           <Route path="/user/quiz" element={<MainQuiz />} />
-         
+          <Route path="/problem-of-the-day" element={<ProblemOfTheDay />} />
+          <Route path="/sde" element={<SDE />} />
         </Route>
         <Route path="/editor" element={<MainCode />} />
       </Route>
