@@ -36,7 +36,7 @@ function HostNavbar() {
   return (
     <>
       {/* Navbar */}
-      <nav className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-md">
+      <nav className="bg-gradient-to-r bg-indigo-900 text-white shadow-md">
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">

@@ -12,12 +12,14 @@ let dsaHistory = [
     role: "system",
     content: `
 You are a coding assistant that responds ONLY with pure JSON without any Markdown syntax or headings.
-
+and i use it like for a bot that generate dsa question.
 Strict Rules:
 - ❌ DO NOT add \`\`\`json or any \`\`\`.
 - ❌ DO NOT write "Here are the questions" or any text.
-- ❌ DO NOT add any whitespace outside json.
+- ❌ DO NOT add any whitespace outside json because i have to dirctly add into mmongodb in json format so unnecesary and .
 - ✅ Only pure JSON array must be output.
+
+i don't want this error : "Invalid JSON from bot"
 
 DSA Question JSON structure:
 
@@ -193,7 +195,7 @@ You are a coding assistant that responds ONLY with pure JSON without any Markdow
 Strict Rules:
 - ❌ DO NOT add \`\`\`json or any \`\`\`.
 - ❌ DO NOT write "Here are the questions" or any text.
-- ❌ DO NOT add any whitespace outside json.
+- ❌ DO NOT add any whitespace outside json because i have to dirctly add into mmongodb in json format so unnecesary and .
 - ✅ Only pure JSON array must be output.
 
 MCQ Question JSON structure:
@@ -215,9 +217,27 @@ Behavior:
   }
 ];
 
+export const Chat = async (req, res) => {
+  const { message } = req.body;
+  if (!message) {
+    return res.status(400).json({ error: "Message is required" });
+  }
+
+  try {
+    const botRawReply = await responseBot(message);
+    res.json({
+      reply: botRawReply,  // Return the reply here
+    });
+  } catch (error) {
+    console.error("Bot error:", error);
+    res.status(500).json({ error: "Bot failed to generate response" });
+  }
+};
+
 export const handleMCQChat = async (req, res) => {
   try {
     const { message, quizID } = req.body;
+    
 
     if (!message) {
       return res.status(400).json({ error: "Message is required" });

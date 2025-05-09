@@ -125,7 +125,8 @@ function ChallengeSetup({ onClose, activeMode }) {
   };
 
   return (
-    <div className="p-6 bg-white rounded-md shadow-lg w-full max-w-md mx-auto relative">
+    <div className="mt-20 p-6 bg-white rounded-md shadow-lg w-full max-w-md mx-auto relative">
+
       <button
         onClick={onClose}
         className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"

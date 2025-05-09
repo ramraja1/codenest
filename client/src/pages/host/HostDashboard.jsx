@@ -138,7 +138,7 @@ function HostDashboard() {
                 <div className="flex justify-start">
                   <button
                     type="submit"
-                    className="bg-indigo-600 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 transition duration-200"
+                    className="bg-indigo-900 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 transition duration-200"
                   >
                     Update Details
                   </button>
@@ -164,7 +164,7 @@ function HostDashboard() {
                       className="w-12 h-12 rounded-full border-2 border-white cursor-pointer"
                     />
                   ) : (
-                    <FaUserCircle className="text-indigo-600 text-6xl cursor-pointer" />
+                    <FaUserCircle className="text-indigo-900 text-6xl cursor-pointer" />
                   )}
                   <div className="ml-4">
                     <h1 className="text-2xl font-semibold text-gray-800">
@@ -175,7 +175,7 @@ function HostDashboard() {
                 <div className="flex justify-center">
                   <button
                     onClick={() => setIsEditing(true)}
-                    className="flex items-center gap-2 bg-indigo-600 text-white py-2 px-6 rounded-full font-medium shadow-lg hover:bg-indigo-700 hover:shadow-xl transition duration-200 transform hover:scale-105 whitespace-nowrap"
+                    className="flex items-center gap-2 bg-indigo-900 text-white py-2 px-6 rounded-full font-medium shadow-lg hover:bg-indigo-700 hover:shadow-xl transition duration-200 transform hover:scale-105 whitespace-nowrap"
                   >
                     <FaTasks /> Edit Details
                   </button>
@@ -184,7 +184,7 @@ function HostDashboard() {
 
               {/* Coding Challenges Card */}
               <div className="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-300 mt-6">
-                <div className="flex items-center gap-3 text-indigo-600">
+                <div className="flex items-center gap-3 text-indigo-900">
                   <FaCode className="text-3xl" />
                   <h2 className="text-xl font-semibold text-gray-800">
                     Coding Challenges
@@ -196,7 +196,7 @@ function HostDashboard() {
                 </p>
                 <button
                   onClick={() => dispatch(setSelectedTab("contests"))}
-                  className="mt-4 bg-indigo-600 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 transition duration-200 w-full"
+                  className="mt-4 bg-indigo-900 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 transition duration-200 w-full"
                 >
                   <a href="#preData"> Manage Challenges</a>
                 </button>
@@ -204,7 +204,7 @@ function HostDashboard() {
 
               {/* Quiz Challenges Card */}
               <div className="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-300 mt-6">
-                <div className="flex items-center gap-3 text-indigo-600">
+                <div className="flex items-center gap-3 text-indigo-900">
                   <FaQuestionCircle className="text-3xl" />
                   <h2 className="text-xl font-semibold text-gray-800">
                     Quiz Challenges
@@ -216,7 +216,7 @@ function HostDashboard() {
                 </p>
                 <button
                   onClick={() => dispatch(setSelectedTab("quizzes"))}
-                  className="mt-4 bg-indigo-600 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 transition duration-200 w-full"
+                  className="mt-4 bg-indigo-900 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 transition duration-200 w-full"
                 >
                   <a href="#preData">Manage Quizzes</a>
                 </button>
@@ -259,7 +259,7 @@ function HostDashboard() {
                     onClick={handleCreateContest}
                   >
                     <div className="bg-indigo-200 p-4 rounded-full flex items-center justify-center mb-3 transition-all duration-300 hover:bg-indigo-300 shadow-md">
-                      <FaPlus className="text-indigo-700 text-5xl" />
+                      <FaPlus className="text-indigo-900 text-5xl" />
                     </div>
                     Create New{" "}
                     {selectedTab === "contests"

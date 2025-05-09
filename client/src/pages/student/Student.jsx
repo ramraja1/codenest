@@ -4,6 +4,8 @@ import { useJoinChallengeMutation } from "../../redux/api/api";
 import useMutationToast from "../../hooks/useMutationToast";
 import { useNavigate } from "react-router-dom";
 import { setChallengeID } from "../../redux/reducers/auth";
+import {server} from "../../constants/config"; // adjust path as needed
+import axios from "axios"; // Make sure axios is installed
 
 const Student = () => {
   const [key, setKey] = useState("");
@@ -12,6 +14,12 @@ const Student = () => {
   const { user } = useSelector((state) => state.auth);
 
   const [joinChallenge, joinStatus] = useJoinChallengeMutation();
+  const [showBot, setShowBot] = useState(false);
+const [chatInput, setChatInput] = useState("");
+const [messages, setMessages] = useState([
+  { from: "bot", text: "Hi! I'm CodeBot. How can I assist you today?" },
+]);
+
 
   useMutationToast({
     ...joinStatus,
@@ -42,58 +50,174 @@ const Student = () => {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] flex flex-col items-center justify-center py-16 px-4">
-      {/* Title */}
-      <div className="text-center mb-12 animate-fade-in">
-        <h1 className="text-5xl font-extrabold text-yellow-400 mb-3 drop-shadow-md">
-          Welcome, <span className="text-teal-400">Student</span>
+    <div className="min-h-screen bg-[#0B1120] flex flex-col items-center justify-center py-16 px-4 text-white">
+      {/* Title Section */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-yellow-400 drop-shadow-sm">
+          Welcome, <span className="text-cyan-400">Student</span>
         </h1>
-        <p className="text-lg text-gray-200 opacity-90">
-          Explore coding contests and quizzes to enhance your skills!
+        <p className="mt-3 text-lg text-gray-300 max-w-2xl mx-auto">
+          Participate in contests or quizzes to sharpen your placement skills.
         </p>
       </div>
 
       {/* Cards Section */}
-      <div className="flex flex-wrap justify-center gap-10">
-        {/* Card 1: Coding Contest */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-sm w-full text-center shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-          <h3 className="text-2xl font-bold text-yellow-400 mb-4 drop-shadow">
-            Join Coding Contest
+      <div className="flex flex-wrap justify-center gap-10 w-full max-w-5xl px-4">
+        {/* Join Coding Contest Card */}
+        <div className="bg-[#1F2937] border border-gray-700 rounded-xl p-8 w-full sm:w-[350px] text-center shadow hover:shadow-lg hover:scale-105 transition duration-300">
+          <h3 className="text-2xl font-bold text-yellow-300 mb-4">
+            🚀 Join Contest
           </h3>
-          <p className="text-gray-300 mb-4">
-            Enter the access key to participate in exciting challenges.
+          <p className="text-gray-300 mb-5 text-sm">
+            Enter your contest key to access the challenge.
           </p>
           <input
             type="text"
             value={key}
             onChange={handleKeyChange}
-            className="w-full bg-white/20 text-white placeholder-gray-300 py-2 px-4 mb-4 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 backdrop-blur-md"
             placeholder="Enter access key"
+            className="w-full border border-gray-900 bg-gray-800 text-white placeholder-gray-400 py-2 px-4 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
+
           <button
             onClick={handleSubmitKey}
-            className="w-full bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-300 text-black font-bold py-2 px-4 rounded-md shadow-md hover:shadow-lg hover:brightness-110 transition-all"
+            className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 rounded-md transition duration-200 shadow"
           >
-            🚀 Join Now
+            Join Now
           </button>
         </div>
 
-        {/* Card 2: Quiz */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-sm w-full text-center shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-          <h3 className="text-2xl font-bold text-teal-400 mb-4 drop-shadow">
-            Take a Quiz
+        {/* Quiz Card */}
+        <div className="bg-[#1F2937] border border-gray-700 rounded-xl p-8 w-full sm:w-[350px] text-center shadow hover:shadow-lg hover:scale-105 transition duration-300">
+          <h3 className="text-2xl font-bold text-cyan-300 mb-4">
+            🧠 Take a Quiz
           </h3>
-          <p className="text-gray-300 mb-4">
-            Test your knowlege with fun and interactive quizzes.
+          <p className="text-gray-300 mb-5 text-sm">
+            Test your knowledge with quick and fun quizzes.
           </p>
           <button
             onClick={() => navigate("/user/quiz/dashboard")}
-            className="w-full bg-gradient-to-r from-teal-500 via-teal-400 to-teal-300 text-black font-bold py-2 px-4 rounded-md shadow-md hover:shadow-lg hover:brightness-110 transition-all"
+            className="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-2 rounded-md transition duration-200 shadow"
           >
-            🧠 Start Quiz
+            Start Quiz
           </button>
         </div>
+        {/* Footer Section */}
+        <div className="mt-16 w-full border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+          <p>
+            Need help? Reach out to us at{" "}
+            <a
+              href="mailto:ramtiwari7081@gmail.com"
+              className="text-yellow-400 hover:underline"
+            >
+              support@codenest.com
+            </a>{" "}
+            or ask in the{" "}
+            <a
+              href="https://wa.me/919696734338"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:underline"
+            >
+              student help group
+            </a>
+            .
+          </p>
+          <p className="mt-2 opacity-60">
+            © 2025 CodeNest Team. All rights reserved.
+          </p>
+        </div>
       </div>
+
+      {/* Floating Chat Button */}
+<div className="fixed bottom-6 right-6 z-50">
+  <button
+    onClick={() => setShowBot(true)}
+    className="bg-cyan-400 hover:bg-cyan-300 text-black font-bold px-4 py-3 rounded-full shadow-lg transition duration-300"
+  >
+    🤖 Ask CodeBot
+  </button>
+</div>
+
+{/* Sidebar Chat UI */}
+{showBot && (
+ <div className="fixed top-30 right-0 h-[80%] sm:h-[70%] w-[70%] sm:w-[350px] bg-[#1F2937] text-white z-50 shadow-xl flex flex-col">
+    {/* Header */}
+    <div className="flex items-center justify-between p-4 border-b border-gray-700 bg-[#111827]">
+      <h2 className="text-lg font-bold text-yellow-300">CodeBot Assistant</h2>
+      <button
+        onClick={() => setShowBot(false)}
+        className="text-gray-400 hover:text-white text-2xl"
+      >
+        &times;
+      </button>
+    </div>
+
+    {/* Messages */}
+    <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      {messages.map((msg, idx) => (
+        <div
+          key={idx}
+          className={`w-fit max-w-[80%] px-4 py-2 rounded-xl ${
+            msg.from === "bot"
+              ? "bg-gray-700 text-white"
+              : "bg-cyan-400 text-black self-end ml-auto"
+          }`}
+        >
+          {msg.text}
+        </div>
+      ))}
+    </div>
+
+    {/* Input */}
+    <div className="p-4 border-t border-gray-700 bg-[#111827]">
+      <form
+onSubmit={(e) => {
+  e.preventDefault();
+  if (!chatInput.trim()) return;
+
+  const newMsg = { from: "user", text: chatInput };
+  setMessages((prev) => [...prev, newMsg]);
+
+  // Clear input
+  setChatInput("");
+
+  // Send user message to backend
+  axios
+    .post(`${server}/chatbot/chat`, { message: chatInput })
+    .then((response) => {
+      console.log(response)
+      const botMsg = response.data?.reply || "Sorry, no response.";
+      setMessages((prev) => [...prev, { from: "bot", text: botMsg }]);
+    })
+    .catch((error) => {
+      console.error("Chat error:", error);
+      setMessages((prev) => [
+        ...prev,
+        { from: "bot", text: "Error reaching CodeBot backend." },
+      ]);
+    });
+}}
+        className="flex gap-2"
+      >
+        <input
+          type="text"
+          value={chatInput}
+          onChange={(e) => setChatInput(e.target.value)}
+          placeholder="Ask something..."
+          className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        />
+        <button
+          type="submit"
+          className="bg-cyan-400 text-black px-4 py-2 rounded-md hover:bg-cyan-300 font-bold"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
