@@ -79,9 +79,10 @@ const Body = () => {
                       setStudentOpen(false);
                       setActiveTab(null);
                     }}
-                    className="bg-gradient-to-r from-blue-600 to-teal-500 text-white px-8 py-3 rounded-full shadow-lg z-10 relative text-lg font-semibold hover:from-blue-700 hover:to-teal-600 transition-all duration-300 transform hover:scale-105"
+                    className="bg-gradient-to-r from-blue-900 to-teal-500 text-white px-7 py-3 rounded-xl shadow-lg z-10 relative font-medium hover:bg-gradient-to-r hover:from-blue-700 hover:to-teal-600 transition-transform duration-300 hover:scale-105 animate-gradient"
+
                   >
-                    Create Account
+                    Create Account 
                   </button>
 
                   {showBranches && <div className="straight-line" />}

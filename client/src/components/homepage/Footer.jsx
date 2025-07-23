@@ -35,8 +35,8 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <h2 className="text-xl font-semibold text-white mb-4">Contact Us</h2>
             <p className="text-sm mb-4">Feel free to reach out for support or inquiries. We are always here to help!</p>
-            <p className="text-sm">Email: <a href="mailto:support@codenest.com" className="hover:underline text-blue-400">codenest@gmail.com</a></p>
-            <p className="text-sm">Phone: <a href="tel:+123456789" className="hover:underline text-blue-400">+91 7692057868</a></p>
+            <p className="text-sm">Email: <a href="mailto:ramtiwar7081@gmail.com" className="hover:underline text-blue-400">codenest@gmail.com</a></p>
+            <p className="text-sm">Phone: <a href="tel:+919696734338" className="hover:underline text-blue-400">+91 9696734338</a></p>
             <p className="text-sm">Address: Ashoka Garden, Bhopal, India</p>
           </div>
         </div>
@@ -64,15 +64,16 @@ const Footer = () => {
           <div className="flex justify-between items-center">
             {/* Social Media Links */}
             <div className="flex space-x-6">
-              <a href="https://github.com/tulsirampathe" className="text-gray-400 hover:text-white">
+              <a href="https://github.com/ramraja1" className="text-gray-400 hover:text-white">
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/tulsiram-pathe-03b7b9258/" className="text-gray-400 hover:text-white">
+              <a href="https://www.linkedin.com/in/pawan-tiwari-922284246" className="text-gray-400 hover:text-white">
                 <FaLinkedinIn />
               </a>
             </div>
 
             {/* Copyright */}
+            <p className='text-center px-1'>Made with ❤ in India</p>
             <div className="text-center text-gray-500 text-sm">
               © 2025 Codenest. All Rights Reserved. <br />
               <a href="#privacy" className="text-sm text-gray-400 hover:underline">Privacy Policy</a> | <a href="#terms" className="text-sm text-gray-400 hover:underline">Terms of Service</a>

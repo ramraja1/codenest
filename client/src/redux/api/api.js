@@ -80,7 +80,7 @@ const api = createApi({
       providesTags: ["Challenge"],
     }),
 
-    // Edit challenge data
+    // Edit challenge data 
     editChallengeData: builder.mutation({
       query: ({ id, data }) => ({
         url: `challenge/${id}/update`,

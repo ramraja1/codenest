@@ -350,6 +350,8 @@ function MainCode() {
         >
           <div className="w-full flex justify-start px-4 py-2 text-gray-800">
             <h1 className="text-lg font-semibold">Code Editor</h1>
+            <hr />
+            <hr />
           </div>
           <CodeEditor
             language={language}
